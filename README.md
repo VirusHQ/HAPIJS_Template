@@ -44,3 +44,22 @@ Associations must be done manually though each model file
 sequelize init
 ```
 3. Hapi is configured to work with JWT and Swagger
+
+### About populateSQL.js
+This script populates 1000 rows in the sql table.
+Table schema 
+```
+CREATE TABLE `videos` (
+	`id` INT(11) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(50) NOT NULL COLLATE 'latin1_swedish_ci',
+	`url` VARCHAR(250) NOT NULL COLLATE 'latin1_swedish_ci',
+	`thumbnailUrl` VARCHAR(250) NOT NULL COLLATE 'latin1_swedish_ci',
+	`isPrivate` TINYINT(1) NOT NULL DEFAULT '0',
+	`timesViewed` INT(11) NOT NULL DEFAULT '0',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COLLATE='latin1_swedish_ci'
+ENGINE=InnoDB
+;
+
+```
