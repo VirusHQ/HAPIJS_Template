@@ -7,6 +7,7 @@ const Pack = require('../package');
 const Routes = require('../config/routes');
 const config = require('../config/config.js');
 const Qs = require('qs');
+require('dotenv').config();
 
 const people = { // our "users database"
   1: {
@@ -28,8 +29,7 @@ const validate = async function(decoded, request, h) {
 };
 
 const server = new Hapi.Server({
-  host: 'localhost',
-  port: 3000,
+  port: process.env.PORT || 3000,
   query: {
     parser: (query) => Qs.parse(query)
   }
@@ -40,14 +40,9 @@ exports.init = async () => {
   const swaggerOptions = {
     schemes: ['https', 'http'],
     info: {
-      title: 'Trader On The Street',
+      title: 'Hapi Tempelate',
       version: Pack.version,
-      description: 'API access to traderonthestreet market data.',
-      termsOfService: 'https://traderonthestreet.com/terms-of-service/',
-      contact: {
-        name: 'Support',
-        email: 'support@traderonthestreet.com'
-      }
+      description: 'API access to the template.'
     },
     securityDefinitions: { // Define Hapi Swagger Authentication Window
       'jwt': {

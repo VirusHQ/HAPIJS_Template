@@ -11,12 +11,12 @@ module.exports = {
 
       var pageNo = 0;
       if (page === undefined) pageNo = 1;
-      var totalVids = await Models.sequelize.query('SELECT count(*) as total from `tldv`.`videos`', {
+      var totalVids = await Models.sequelize.query('SELECT count(*) as total from `videos`', {
         type: Models.sequelize.QueryTypes.SELECT
       });
       totalVids = totalVids[0].total;
 
-      var sql = 'SELECT * FROM `tldv`.`videos`';
+      var sql = 'SELECT * FROM `videos`';
       if (isPrivate !== undefined || timesViewed !== undefined) {
         sql = sql + ' WHERE ';
         if (isPrivate !== undefined) {

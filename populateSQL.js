@@ -21,7 +21,7 @@ sequelize.authenticate().then(function() {
 
     console.log(n, u, ut, Math.floor(p) % 2, v);
 
-    sequelize.query('INSERT INTO `tldv`.`videos` (`name`, `url`, `thumbnailUrl`, `isPrivate`, `timesViewed`) VALUES (?, ?, ?, ?, ?)', {
+    sequelize.query('INSERT INTO `videos` (`name`, `url`, `thumbnailUrl`, `isPrivate`, `timesViewed`) VALUES (?, ?, ?, ?, ?)', {
       type: sequelize.QueryTypes.INSERT,
       replacements: [
         n, u, ut, Math.floor(p) % 2, v
